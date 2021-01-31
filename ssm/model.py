@@ -116,7 +116,6 @@ class SSM(nn.Module):
 
 
     # for simulation
-    @torch.no_grad()
     def step(self, a_t):
         s_t = self.prior(self.s_t, a_t)[0]
         self.s_t = s_t
@@ -125,7 +124,8 @@ class SSM(nn.Module):
 
 
     # for simulation
-    @torch.no_grad()
     def reset(self, x_0):
         s_t = self.sample_s_0(x_0)
         self.s_t = s_t
+        x_t = self.decoder(s_t)
+        return x_t
