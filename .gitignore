@@ -1,6 +1,6 @@
-data/
 logzero/
 weights/
+*.pkl
 MUJOCO_LOG.TXT
 
 
